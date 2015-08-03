@@ -1,0 +1,31 @@
+language: android
+env:
+  global:
+  - ANDROID_ABI=armeabi-v7a
+  - ANDROID_TARGET=android-22
+  - BUILD_TYPE=travisCI
+  - secure: B0FfY2/vJgC8IZoX10Caix7KuHGWGPw95n8oJp5V+6tn8mnbCtfaeph678xaqTF8yRzIAXk0D5ltanAtJJmi8sq9t0dTqV1iwz2oJqpSQXFWKXFCfWAbip9YhmPRdRxhJUyIPgTnhkyVGAfmIHz4fB/1dWPewksYGqBWEWeAZFdTY7dl5b5iHn4w1FsnMpwKpxY3WMfcNyq9VuhMV9DITJ/MdEcKqdbeZJ4h0jGAnv4X24Cjo5nopvpJJjc3uctQcm4O6q1+69GUoViwckXWqGJOmOhUT3nRIF/hrs4qMFM1IM4A+Xj1xEzpYf3xAxC+5ILHph0dK9DnzZG7TAPpgFuz3TAQtOGoKIh+rfIsjidQ905zqlHVaV/FvALOUnFnQfhutopnqz6OESu66423xmGNIDjYqgoSl8VuH+OfGEsqXq7gYH9brzJko31iY2c2JaOArD5HNeIwf+xtBNx53sEmIyWcBtw8Tjq3t9uH3sY2bGnVrU2/rOUIyXvnwpEdl7gBPS6q78M05iVcfRXs7akyp+oASIfQIzegE2EgatbYdoAsHLsWvJ59G8ek7uk7Q9hBb6DRSL/OS929lA9mnKjCXgE/kpDL9HqoXodIHwyP0tmuVSCicLnyfdB1eknoqJUprqJx0Ad/UFKlxOust2AMwfRPDnuiRMi+hhrxvSA=
+git:
+  depth: 1
+notifications:
+  email: false
+android:
+  components:
+  - platform-tools
+  - tools
+  - build-tools-22.0.1
+  - "$ANDROID_TARGET"
+  - extra-google-google_play_services
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - sys-img-$ANDROID_ABI-$ANDROID_TARGET
+script:
+- cd ./MyApplication/
+- "./gradlew assemble$BUILD_TYPE"
+deploy:
+  provider: releases
+  api_key:
+    secure: IMzQ6dfbJxDGF4L7gRATTT+YTWY9D/998rW2ZHSvXKkYjHWZrFYg7Jyo43q7CqZOKL+pgujAfYsxycu4H5s844yXLwGaChgpflLFo3mGODGgoRmsniIc91WSpYJKR+Oe8d3e8eAQbhDiGDTaJ4fI0R2YhIRuxlAKlP9x73t27HOFwVPQ+CcS/tT/HMfJ4hRfY3zcHSLv+Gs/sFUIUmh7Yz2lMrYe8q8YQy/U1uTb10K7N8nbrJoi4RTco2Ryijoz5e/K4q/5nuHEbgzFdLLw9fFCPbzAmoqKxT54v4CGueTifR5hgT4SCjCEYW8+Spy1LuXlLPkhU2Ih0NvXXGinM0pZZkg4l/CDgM5C5z+byobWdInVuhEsrM9Npl9amslTdCfkOZlnx3Mad0sCeDBq3E/HUsjqdqSv1rr7nX5jyFHuCYgYsxnFmYEgozSfUo086AXr+btUew6qfIXLoxcp6W7ufoV9f4STqhzItzhAWP816eJ6bEuVHXHKQSDFxFF5c/OrmxoT7Q+T+ck7frTWkLee0uGrXNhvT2of86UwCPeIrF9d4oJTqwHEVDfMmEdEra+kug4XKt16QwdsQz1ENmOYhUG+ti/kkdd2MA+7Mh/rBD/a8m/z756rtPo7fdO8DA/tbPa4fXO0gFwYmDcG6wXfIQhR6mTOQY5R448H3Hg=
+  file: "./MyApplication/app/build/outputs/apk/app-$BUILD_TYPE.apk"
+  on:
+    repo: hckhanh/DemoDeployCI
