@@ -1,4 +1,7 @@
 language: android
+branches:
+  except:
+    - demo
 env:
   global:
   - ANDROID_ABI=armeabi-v7a
