@@ -4,7 +4,7 @@ env:
   - ANDROID_ABI=armeabi-v7a
   - ANDROID_TARGET=android-22
   - BUILD_TYPE=travisCI
-  - secure: B0FfY2/vJgC8IZoX10Caix7KuHGWGPw95n8oJp5V+6tn8mnbCtfaeph678xaqTF8yRzIAXk0D5ltanAtJJmi8sq9t0dTqV1iwz2oJqpSQXFWKXFCfWAbip9YhmPRdRxhJUyIPgTnhkyVGAfmIHz4fB/1dWPewksYGqBWEWeAZFdTY7dl5b5iHn4w1FsnMpwKpxY3WMfcNyq9VuhMV9DITJ/MdEcKqdbeZJ4h0jGAnv4X24Cjo5nopvpJJjc3uctQcm4O6q1+69GUoViwckXWqGJOmOhUT3nRIF/hrs4qMFM1IM4A+Xj1xEzpYf3xAxC+5ILHph0dK9DnzZG7TAPpgFuz3TAQtOGoKIh+rfIsjidQ905zqlHVaV/FvALOUnFnQfhutopnqz6OESu66423xmGNIDjYqgoSl8VuH+OfGEsqXq7gYH9brzJko31iY2c2JaOArD5HNeIwf+xtBNx53sEmIyWcBtw8Tjq3t9uH3sY2bGnVrU2/rOUIyXvnwpEdl7gBPS6q78M05iVcfRXs7akyp+oASIfQIzegE2EgatbYdoAsHLsWvJ59G8ek7uk7Q9hBb6DRSL/OS929lA9mnKjCXgE/kpDL9HqoXodIHwyP0tmuVSCicLnyfdB1eknoqJUprqJx0Ad/UFKlxOust2AMwfRPDnuiRMi+hhrxvSA=
+  - secure: gpPRUeryzzOrwLYeplb6q4YxrlWIIeycE1UmITITs8s4CLc+DQRmw183JKs6mpGBQ/69j0qcT86JtXrsMT/F5QbQnU4zEVF2vjKHHfAhxmBtYOvQMhfsz5WVx3BWAW9GqABG+0IFdn6Dti9sDbosL7Zt3zQkMiMq8kDJjYLQR6dpDx7AuVleDRS5x7C+MHQNE0w6o/hzyauoSOFruljgBKu/p/I/fguMwAxIrvN3PRZJecA8j+LGmx7QhZYNr4CtmXxjLr8G8f+1kQGgQexWSD8KRTKEppGrgoVOD6wayVhwXeckdBK5BsNGFnLGGvclQKXA/yZ/+rBtxSHQmF+8XSvjZMmwssHoLK6h0fhO4xhgOka5Xmo1FwqwGtOfMnqjf7tI1NFxlR/jHQnjWCZ4/RNTqPKVaPIW91Fd96u2HU4lV8sEaKt1vEq39hB9tluAuFhzpY7UQyF3fJkLOC8+9Xq6yZDrC736Hi/BMVJuJaf3zrEA31sIA3AuPXDsXHP6NEEHf2Q9CgYSWLgMKESWtbjJryS+vOaD+qlpkN+RAOdeoj4p2LH7oiQkZSfMpShOC63tsQKSWV6g8mwl+BLI0AUdxgvvyzRP4sBTLFGBVWKmvc4g0bq0OVl/pJPemCjSl8ujqx660tGoAVdImZeK3eI13gi0i9IlaJpeVnKWhpU=
 git:
   depth: 1
 notifications:
@@ -21,7 +21,7 @@ android:
   - sys-img-$ANDROID_ABI-$ANDROID_TARGET
 script:
 - cd ./MyApplication/
-- ./gradlew assemble$BUILD_TYPE
+- "./gradlew assemble$BUILD_TYPE"
 deploy:
   provider: releases
   api_key:
