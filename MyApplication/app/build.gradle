@@ -4,9 +4,9 @@ android {
     signingConfigs {
         configTravisCI {
             keyAlias 'com.demo.keystore'
-            keyPassword '$System.env.KEY_PASS'
+            keyPassword System.getenv('KEY_PASS')
             storeFile file('release.keystore.jks')
-            storePassword '$System.env.KEY_PASS'
+            storePassword System.getenv('KEY_PASS')
         }
     }
     compileSdkVersion 22
